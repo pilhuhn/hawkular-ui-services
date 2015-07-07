@@ -58,6 +58,15 @@ module hawkularRest {
         });
       };
 
+      factory.Resolved = function(tenantId) {
+        return $resource(url + "/resolved", null, {
+          retrieve: {
+            method:'GET',
+            isArray: true,
+            headers: {'Hawkular-Tenant': tenantId}
+          }
+        });
+      };
 
       return factory;
     }];
